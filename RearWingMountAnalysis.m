@@ -62,10 +62,12 @@ FDrag = [40,0,0];
 PDrag = [-60, 35, 0];
 
 eqs = [FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left == [0,0,0],
-    cross(PDown, FDown) + cross(PUpperWing, FUpper) + cross(PUpperWing_Left, FUpper_Left) + cross(PBottomRearWing, FBottomRear) + cross(PBottomRearWing_Left, FBottomRear_Left) + cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) == [0,0,0] ]
-[TBottomRear, TBottomFront, TUpper] = solve(eqs)
-
-display(TBottomRear)
+    cross(PDown, FDown) + ...
+    cross(PUpperWing, FUpper) + cross(PUpperWing_Left, FUpper_Left) + ...
+    cross(PBottomRearWing, FBottomRear) + cross(PBottomRearWing_Left, FBottomRear_Left) + ...
+    cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) == [0,0,0]
+    ];
+[TBottomRear, TBottomFront, TUpper] = solve(eqs);
 
 
 UpperWallThickness_Yield = (solve(PipeYieldStress == abs(TUpper)*FOS/PipeArea));
