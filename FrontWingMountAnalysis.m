@@ -8,6 +8,11 @@ PipeOD = 0.375; %Pipe OD in inches
 syms FrontWallThickness;
 PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness*2)^2);
 
+% Acceleration Info
+%TODO: Replace placeholder values
+mass = 20/32.2; % Mass in slugs
+acceleration = [20,0,0]; % Acceleration in ft/s^2
+PCOM = [-64, 40, 0]; % Center of mass
 
 % Bottom Attachment Forces
 syms FBx FBy;
@@ -41,19 +46,19 @@ FDown = [0,-200,0];
 PDown = [25, 0, 0];
 
 [FBx, FBy, TFront] = solve([
-    FDown + FFront + FFront_Left + FBottom + FBottom_Left == [0,0,0],
-    cross(PDown, FDown) + cross(PFrontWing, FFront) + cross(PFrontWing_Left, FFront_Left) + cross(PBottomWing, FBottom) + cross(PBottomWing_Left, FBottom_Left) == [0,0,0]
+    FDown + FFront + FFront_Left + FBottom + FBottom_Left == mass*acceleration,
+    cross(PDown, FDown) + cross(PFrontWing, FFront) + cross(PFrontWing_Left, FFront_Left) + cross(PBottomWing, FBottom) + cross(PBottomWing_Left, FBottom_Left) == mass*cross(PCOM, acceleration)
     ]);
 
 % Shear force is magnitude of x and y forces
 FBottomShear = sqrt(FBx^2+FBy^2);
 
 FrontWallThickness_Yield = (solve(PipeYieldStress == TFront*FOS/PipeArea));
-FrontWallThickness = 0.028
+FrontWallThickness = 0.028;
 PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness_Yield(FrontWallThickness<0.1)*2)^2);
 Deformation_Tierod = TFront*norm(LFront)/PipeModulus/PipeArea;
 
-fprintf('Tension in Rod End: %f0.2 lbs\n', double(TFront) )
-fprintf('Shear Force in Bolt (x,y: mag): %f0.2, %f0.2 :%f0.2 lbs\n', double(FBx), double(FBy), double(FBottomShear) )
-fprintf('Required Tie Rod Wall Thickness (Yield, w. FOS): %f0.2 in\n', double(FrontWallThickness_Yield(FrontWallThickness_Yield<0.1)) )
-fprintf('Deformation at Loading (Realistic, no FOS): %f0.2 in\n\n',  double(Deformation_Tierod) ) 
+fprintf('Tension in Rod End: %0.2f lbs\n', double(TFront) )
+fprintf('Shear Force in Bolt (x,y -> mag): %0.2f, %0.2f -> %0.2f lbs\n', double(FBx), double(FBy), double(FBottomShear) )
+fprintf('Required Tie Rod Wall Thickness (Yield, w. FOS): %0.5f in\n', double(FrontWallThickness_Yield(FrontWallThickness_Yield<0.1)) )
+fprintf('Deformation at Loading (Realistic, no FOS): %0.5f in\n\n',  double(Deformation_Tierod) ) 

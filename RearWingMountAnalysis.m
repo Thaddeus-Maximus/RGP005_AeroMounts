@@ -3,14 +3,20 @@ clear
 PipeYieldStress = 63100; %Yield stress of 4130 Steel in PSI
 PipeModulus = 29700e+3;  %Pipe Modulus of Elasticity in PSI
 
+% Acceleration Info
+%TODO: Replace placeholder values
+mass = 20/32.2; % Mass in slugs
+acceleration = [20,0,0]; % Acceleration in ft/s^2
+PCOM = [-64, 40, 0]; % Center of mass
+
 FOS = 8.5; %Factor of Safety
 PipeOD = 0.375; %Pipe OD in inches
-syms FrontWallThickness;
-PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness*2)^2);
+syms WallThickness;
+PipeArea = pi/4*(PipeOD^2-(PipeOD-WallThickness*2)^2);
 
 % Attachment Points. Dimensions in Inches.
 % Recall coord system: Measured from Car origin. X is forwards, Y is up, Z
-% is left
+% is right
 PUpperWing = [-57.80, 39.24, 5.98];
 PUpperWing_Left = [PUpperWing(1),PUpperWing(2),-PUpperWing(3)];
 
@@ -43,7 +49,6 @@ LBottomFront_Left = PBottomFrontChassis_Left - PBottomFrontWing_Left;
 
 % Tie rod forces
 syms TUpper TBottomRear TBottomFront
-% TBottomFront=0
 
 FUpper=LUpper/norm(LUpper) *TUpper;
 FUpper_Left=LUpper_Left/norm(LUpper_Left) *TUpper;
@@ -54,19 +59,24 @@ FBottomRear_Left=LBottomRear_Left/norm(LBottomRear_Left) *TBottomRear;
 FBottomFront=LBottomFront/norm(LBottomFront) *TBottomFront;
 FBottomFront_Left=LBottomFront_Left/norm(LBottomFront_Left) *TBottomFront;
 
-% Extra Forces in lbf. NEED ESTIMATES
+% Extra Forces in lbf.
+%TODO: NEED ESTIMATES
 FDown = [0,-500,0];
 PDown = [-61, 35, 0];
 
 FDrag = [40,0,0];
 PDrag = [-60, 35, 0];
 
-eqs = [FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left == [0,0,0],
+FWeight = [0,-mass*32.2,0]; % Weight of wing
+
+eqs = [
+    FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left + FWeight== mass*acceleration,
     cross(PDown, FDown) + ...
     cross(PUpperWing, FUpper) + cross(PUpperWing_Left, FUpper_Left) + ...
     cross(PBottomRearWing, FBottomRear) + cross(PBottomRearWing_Left, FBottomRear_Left) + ...
-    cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) == [0,0,0]
+    cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) + cross(PCOM,FWeight)== mass*cross(PCOM, acceleration)
     ];
+
 [TBottomRear, TBottomFront, TUpper] = solve(eqs);
 
 
