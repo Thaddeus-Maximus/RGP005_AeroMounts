@@ -87,10 +87,10 @@ FrontWallThickness = 0.028;
 %PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness_Yield(FrontWallThickness<0.1)*2)^2);
 %Deformation_Tierod = TFront*norm(LBottomFront)/PipeModulus/PipeArea;
 
-fprintf('Tension in Upper Rods: %f lbs\n', double(TUpper) )
-fprintf('Tension in Bottom Rear Rods: %f lbs\n', double(TBottomRear) )
-fprintf('Tension in Bottom Front Rods: %f lbs\n', double(TBottomFront) )
-fprintf('Required Upper Tie Rod Wall Thickness (Yield, w. FOS): %f0.2 in\n', double(max(UpperWallThickness_Yield(UpperWallThickness_Yield<0.1))) )
-fprintf('Required Bottom Rear Tie Rod Wall Thickness (Yield, w. FOS): %f0.2 in\n', double(max(BottomRearWallThickness_Yield(BottomRearWallThickness_Yield<0.1))) )
-fprintf('Required Bottom Front Tie Rod Wall Thickness (Yield, w. FOS): %f0.2 in\n', double(max(BottomFrontWallThickness_Yield(BottomFrontWallThickness_Yield<0.1))) )
+fprintf('Tension in Upper Rods: %.2f lbs\n', double(TUpper) )
+fprintf('Tension in Bottom Rear Rods: %.2f lbs\n', double(TBottomRear) )
+fprintf('Tension in Bottom Front Rods: %.2f lbs\n', double(TBottomFront) )
+fprintf('Required Upper Tie Rod Wall Thickness (Yield, w. FOS): %.4f in\n', double(max(UpperWallThickness_Yield(UpperWallThickness_Yield<0.1))) )
+fprintf('Required Bottom Rear Tie Rod Wall Thickness (Yield, w. FOS): %.4f in\n', double(max(BottomRearWallThickness_Yield(BottomRearWallThickness_Yield<0.1))) )
+fprintf('Required Bottom Front Tie Rod Wall Thickness (Yield, w. FOS): %.4f in\n', double(max(BottomFrontWallThickness_Yield(BottomFrontWallThickness_Yield<0.1))) )
 %fprintf('Deformation at Loading (Realistic, no FOS): %f0.2 in\n\n',  double(Deformation_Tierod) ) 
