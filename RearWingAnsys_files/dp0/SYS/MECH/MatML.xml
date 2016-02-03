@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EngineeringData version="16.1.0.139" versiondate="3/25/2015 14:20:00">
+  <Notes>
+  </Notes>
+  <Materials>
+    <MatML_Doc>
+      <Material>
+        <BulkDetails>
+          <Name>4130 Steel (Normalized)</Name>
+          <PropertyData property="pr0">
+            <Data format="string">-</Data>
+            <Qualifier name="Behavior">Isotropic</Qualifier>
+            <Qualifier name="Derive from">Young's Modulus and Poisson's Ratio</Qualifier>
+            <Qualifier name="Field Variable Temperature">Yes</Qualifier>
+            <Qualifier name="Field Variable _FVShearAngle">No</Qualifier>
+            <Qualifier name="Field Variable _FVDegradationFactor">No</Qualifier>
+            <Qualifier name="Localized Name">Isotropic Elasticity</Qualifier>
+            <ParameterValue parameter="pa0" format="float">
+              <Data>205000000000</Data>
+              <Qualifier name="Variable Type">Dependent</Qualifier>
+              <Qualifier name="Localized Name">Young's Modulus</Qualifier>
+            </ParameterValue>
+            <ParameterValue parameter="pa1" format="float">
+              <Data>0.29</Data>
+              <Qualifier name="Variable Type">Dependent</Qualifier>
+              <Qualifier name="Localized Name">Poisson's Ratio</Qualifier>
+            </ParameterValue>
+            <ParameterValue parameter="pa2" format="float">
+              <Data>162698412698.413</Data>
+              <Qualifier name="Variable Type">Dependent</Qualifier>
+              <Qualifier name="Localized Name">Bulk Modulus</Qualifier>
+            </ParameterValue>
+            <ParameterValue parameter="pa3" format="float">
+              <Data>79457364341.0853</Data>
+              <Qualifier name="Variable Type">Dependent</Qualifier>
+              <Qualifier name="Localized Name">Shear Modulus</Qualifier>
+            </ParameterValue>
+            <ParameterValue parameter="pa4" format="float">
+              <Data>7.88860905221012e-31</Data>
+              <Qualifier name="Variable Type">Independent</Qualifier>
+              <Qualifier name="Localized Name">Temperature</Qualifier>
+              <Qualifier name="Field Variable">Temperature</Qualifier>
+            </ParameterValue>
+          </PropertyData>
+        </BulkDetails>
+      </Material>
+      <Metadata>
+        <ParameterDetails id="pa0">
+          <Name>Young's Modulus</Name>
+          <Units>
+            <Unit>
+              <Name>Pa</Name>
+            </Unit>
+          </Units>
+        </ParameterDetails>
+        <ParameterDetails id="pa1">
+          <Name>Poisson's Ratio</Name>
+          <Unitless />
+        </ParameterDetails>
+        <ParameterDetails id="pa2">
+          <Name>Bulk Modulus</Name>
+          <Units>
+            <Unit>
+              <Name>Pa</Name>
+            </Unit>
+          </Units>
+        </ParameterDetails>
+        <ParameterDetails id="pa3">
+          <Name>Shear Modulus</Name>
+          <Units>
+            <Unit>
+              <Name>Pa</Name>
+            </Unit>
+          </Units>
+        </ParameterDetails>
+        <ParameterDetails id="pa4">
+          <Name>Temperature</Name>
+          <Units>
+            <Unit>
+              <Name>C</Name>
+            </Unit>
+          </Units>
+        </ParameterDetails>
+        <PropertyDetails id="pr0">
+          <Unitless />
+          <Name>Elasticity</Name>
+        </PropertyDetails>
+      </Metadata>
+    </MatML_Doc>
+  </Materials>
+  <ANSYSWBTransferData>
+    <Materials>
+      <Material>
+        <Name>4130 Steel (Normalized)</Name>
+        <DataTransferID>da48de11-115a-4436-877a-d3f599694a6a</DataTransferID>
+        <PreviousTransferIDs>
+        </PreviousTransferIDs>
+      </Material>
+    </Materials>
+  </ANSYSWBTransferData>
+</EngineeringData>

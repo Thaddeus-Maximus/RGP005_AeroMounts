@@ -69,15 +69,13 @@ PDrag = [-60, 35, 0];
 
 FWeight = [0,-mass*32.2,0]; % Weight of wing
 
-eqs = [
-    FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left + FWeight== mass*acceleration,
-    cross(PDown, FDown) + ...
+eq_COLM = FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left + FWeight== mass*acceleration
+eq_COAM = cross(PDown, FDown) + ...
     cross(PUpperWing, FUpper) + cross(PUpperWing_Left, FUpper_Left) + ...
     cross(PBottomRearWing, FBottomRear) + cross(PBottomRearWing_Left, FBottomRear_Left) + ...
-    cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) + cross(PCOM,FWeight)== mass*cross(PCOM, acceleration)
-    ];
+    cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) + cross(PCOM,FWeight)== mass*cross(PCOM, acceleration);
 
-[TBottomRear, TBottomFront, TUpper] = solve(eqs);
+[TBottomRear, TBottomFront, TUpper] = solve([eq_COLM, eq_COAM]);
 
 
 UpperWallThickness_Yield = (solve(PipeYieldStress == abs(TUpper)*FOS/PipeArea));
@@ -86,6 +84,10 @@ BottomFrontWallThickness_Yield = (solve(PipeYieldStress == abs(TBottomFront)*FOS
 FrontWallThickness = 0.028;
 %PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness_Yield(FrontWallThickness<0.1)*2)^2);
 %Deformation_Tierod = TFront*norm(LBottomFront)/PipeModulus/PipeArea;
+
+FBottomRear=LBottomRear/norm(LBottomRear) *TBottomRear;
+
+disp(double(FBottomRear/2))
 
 fprintf('Tension in Upper Rods: %.2f lbs\n', double(TUpper) )
 fprintf('Tension in Bottom Rear Rods: %.2f lbs\n', double(TBottomRear) )

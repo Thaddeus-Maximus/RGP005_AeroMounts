@@ -51,10 +51,14 @@ FDrag_Left = [-12/2, 0, 0];
 PAero = [25, 5, 20];
 PAero_Left = [PAero(1), PAero(2), -PAero(3)];
 
+FImpact = [0,0,0]; %[-2000, 0, 0];
+PImpact = [29.31, 0, 0];
 
-eqs = [ FDown+FDown_Left+FDrag+FDrag_Left+FFront + FFront_Left + FBottom + FBottom_Left == mass*acceleration, cross(PAero, FDown)+cross(PAero_Left, FDown_Left)+cross(PAero, FDrag)+cross(PAero_Left, FDrag_Left)+ cross(PFrontWing, FFront) + cross(PFrontWing_Left, FFront_Left) + cross(PBottomWing, FBottom) + cross(PBottomWing_Left, FBottom_Left) == mass*cross(PCOM, acceleration) ];
 
-[FBx, FBy, TFront] = solve(eqs);
+eq_COLM = FDown+FDown_Left+FDrag+FDrag_Left+FFront + FFront_Left + FBottom + FBottom_Left+FImpact == mass*acceleration
+eq_COAM = cross(PAero, FDown)+cross(PAero_Left, FDown_Left)+cross(PAero, FDrag)+cross(PAero_Left, FDrag_Left)+ cross(PFrontWing, FFront) + cross(PFrontWing_Left, FFront_Left) + cross(PBottomWing, FBottom) + cross(PBottomWing_Left, FBottom_Left) + cross(PImpact,FImpact) == mass*cross(PCOM, acceleration);
+
+[FBx, FBy, TFront] = solve([eq_COLM, eq_COAM]);
   
 % Shear force is magnitude of x and y forces
 FBottomShear = sqrt(FBx^2+FBy^2);
@@ -64,6 +68,7 @@ FrontWallThickness = 0.028;
 PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness_Yield(FrontWallThickness<0.1)*2)^2);
 Deformation_Tierod = TFront*norm(LFront)/PipeModulus/PipeArea;
 
+disp(
 fprintf('Tension in Rod End: %0.2f lbs\n', double(TFront) )
 fprintf('Shear Force in Bolt (x,y -> mag): %0.2f, %0.2f -> %0.2f lbs\n', double(FBx), double(FBy), double(FBottomShear) )
 fprintf('Required Tie Rod Wall Thickness (Yield, w. FOS): %0.5f in\n', double(FrontWallThickness_Yield(FrontWallThickness_Yield<0.1)) )

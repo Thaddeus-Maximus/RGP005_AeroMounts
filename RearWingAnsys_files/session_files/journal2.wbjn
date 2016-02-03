@@ -1,0 +1,46 @@
+﻿# encoding: utf-8
+# Release 16.1
+SetScriptVersion(Version="16.1.91")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = GetSystem(Name="Geometry")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = template1.CreateSystem(
+    ComponentsToShare=[geometryComponent1],
+    Position="Right",
+    RelativeTo=system1)
+Save(Overwrite=True)
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+modelComponent1.Update(AllDependencies=True)
+setup1 = system2.GetContainer(ComponentName="Setup")
+setup1.Edit()
+setup1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+Save(Overwrite=True)
+engineeringData1 = system2.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="4130 Steel (Normalized)")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic")
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Poisson's Ratio"],
+    Values=[["0.29"]])
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["105 [Pa]"]])
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["205 [Pa]"]])
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["205000000000 [Pa]"]])
+favorites1 = EngData.LoadFavoriteItems()
+EngData.EnableFilter(Enable=False)
+Save(Overwrite=True)
+Save(Overwrite=True)
