@@ -51,7 +51,7 @@ FDrag_Left = [-12/2, 0, 0];
 PAero = [25, 5, 20];
 PAero_Left = [PAero(1), PAero(2), -PAero(3)];
 
-FImpact = [0,0,0]; %[-2000, 0, 0];
+FImpact = convforce([-(120-45)*1000, 0, 0], 'N', 'lbf')
 PImpact = [29.31, 0, 0];
 
 
@@ -68,7 +68,6 @@ FrontWallThickness = 0.028;
 PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness_Yield(FrontWallThickness<0.1)*2)^2);
 Deformation_Tierod = TFront*norm(LFront)/PipeModulus/PipeArea;
 
-disp(
 fprintf('Tension in Rod End: %0.2f lbs\n', double(TFront) )
 fprintf('Shear Force in Bolt (x,y -> mag): %0.2f, %0.2f -> %0.2f lbs\n', double(FBx), double(FBy), double(FBottomShear) )
 fprintf('Required Tie Rod Wall Thickness (Yield, w. FOS): %0.5f in\n', double(FrontWallThickness_Yield(FrontWallThickness_Yield<0.1)) )
