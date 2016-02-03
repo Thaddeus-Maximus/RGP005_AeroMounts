@@ -6,13 +6,14 @@ PipeModulus = 29700e+3;  %Pipe Modulus of Elasticity in PSI
 FOS = 1; %Factor of Safety
 PipeOD = 0.375; %Pipe OD in inches
 FrontWallThickness = 0.028;
-PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness*2)^2);
+PipeID = (PipeOD-FrontWallThickness*2);
+PipeArea = pi/4*(PipeOD^2-PipeID^2);
 
 % Acceleration Info
 %TODO: Replace placeholder values
-mass = 8/32.2; % Mass in slugs
+mass = 8/32.2; % Mass in slugs % Get real
 acceleration = [0,32.2*3,0]; % Acceleration in ft/s^2
-PCOM = [-30, 10, 15]; % Center of mass
+PCOM = [-30, 10, 22]; % Center of mass % Get real
 
 % Attachment Points. Dimensions in Inches.
 % Recall coord system: Measured from Car origin. X is forwards, Y is up, Z
@@ -46,18 +47,20 @@ FMiddle = [FMx, FMy, FMz];
 FRear = [FRx, FRy, FRz];
 
 % Extra Forces in lbf
-FDown = [0,-20,0];
-FDrag = [-10, 0, 0];
+FDown = [0,-50,0];   % Get real
+FDrag = [-20, 0, 0]; % Get real
 
-PAero = [-30, 10, 15];
+PAero = [-28.5, 10, 22]; % Get real
 
 eq_COLM = FDown+FDrag +FFront+FMiddle+FRear == mass*acceleration;
 eq_COAM = cross(PAero,FDown)+cross(PAero,FDrag)+cross(PFrontWing,FFront)+cross(PMiddleWing,FMiddle)+cross(PRearWing,FRear) == mass*cross(PCOM, acceleration);
 
-
-DefRear = FRear*norm(LRear)/PipeModulus/PipeArea;
-DefMiddle = FMiddle*norm(LMiddle)/PipeModulus/PipeArea;
-DefFront = FFront*norm(LFront)/PipeModulus/PipeArea;
+F = sym('F',[1,3]);
+L = sym('L',[1,3]);
+Def = norm(L)^3*[F(1), F(2), 0]/(3*PipeModulus*(pi*(PipeOD^2-PipeID^4))/64) +[0,0,F(3)*norm(L)/PipeModulus/PipeArea];
+DefRear = subs(Def, [F, L], [FRear, LRear]);
+DefMiddle = subs(Def, [F, L], [FMiddle, LMiddle]);
+DefFront = subs(Def, [F, L], [FFront, LFront]);
 
 eq_geo = [norm(DefRear+PRearWing-(DefMiddle+PMiddleWing))==norm(PRearWing-PMiddleWing),...
     norm(DefFront+PFrontWing-(DefMiddle+PMiddleWing))==norm(PFrontWing-PMiddleWing),...
