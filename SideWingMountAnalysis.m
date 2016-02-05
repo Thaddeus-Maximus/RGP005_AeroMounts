@@ -12,7 +12,7 @@ PipeArea = pi/4*(PipeOD^2-PipeID^2);
 % Acceleration Info
 %TODO: Replace placeholder values
 mass = 8/32.2; % Mass in slugs % Get real
-acceleration = [0,32.2*3,0]; % Acceleration in ft/s^2
+acceleration = [32.2,32.2*3,0]; % Acceleration in ft/s^2
 PCOM = [-30, 10, 22]; % Center of mass % Get real
 
 % Attachment Points. Dimensions in Inches.

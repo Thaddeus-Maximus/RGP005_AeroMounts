@@ -11,7 +11,7 @@ PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness*2)^2);
 % Acceleration Info
 %TODO: Replace placeholder values
 mass = 8/32.2; % Mass in slugs
-acceleration = [0,32.2*3,0]; % Acceleration in ft/s^2
+acceleration = [32.2,32.2*3,0]; % Acceleration in ft/s^2
 PCOM = [22.04, 8, 0]; % Center of mass
 
 % Bottom Attachment Forces
@@ -51,11 +51,11 @@ FDrag_Left = [-12/2, 0, 0];
 PAero = [25, 5, 20];
 PAero_Left = [PAero(1), PAero(2), -PAero(3)];
 
-FImpact = convforce([-(120-45)*1000, 0, 0], 'N', 'lbf')
+FImpact = [0,0,0]; %convforce([-(120-45)*1000, 0, 0], 'N', 'lbf');
 PImpact = [29.31, 0, 0];
 
 
-eq_COLM = FDown+FDown_Left+FDrag+FDrag_Left+FFront + FFront_Left + FBottom + FBottom_Left+FImpact == mass*acceleration
+eq_COLM = FDown+FDown_Left+FDrag+FDrag_Left+FFront + FFront_Left + FBottom + FBottom_Left+FImpact == mass*acceleration;
 eq_COAM = cross(PAero, FDown)+cross(PAero_Left, FDown_Left)+cross(PAero, FDrag)+cross(PAero_Left, FDrag_Left)+ cross(PFrontWing, FFront) + cross(PFrontWing_Left, FFront_Left) + cross(PBottomWing, FBottom) + cross(PBottomWing_Left, FBottom_Left) + cross(PImpact,FImpact) == mass*cross(PCOM, acceleration);
 
 [FBx, FBy, TFront] = solve([eq_COLM, eq_COAM]);

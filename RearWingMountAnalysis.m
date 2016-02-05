@@ -6,7 +6,7 @@ PipeModulus = 29700e+3;  %Pipe Modulus of Elasticity in PSI
 % Acceleration Info
 %TODO: Replace placeholder values
 mass = 20/32.2; % Mass in slugs
-acceleration = [20,0,0]; % Acceleration in ft/s^2
+acceleration = [32.2,32.2,0]; % Acceleration in ft/s^2
 PCOM = [-64, 40, 0]; % Center of mass
 
 FOS = 8.5; %Factor of Safety
@@ -69,7 +69,7 @@ PDrag = [-60, 35, 0];
 
 FWeight = [0,-mass*32.2,0]; % Weight of wing
 
-eq_COLM = FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left + FWeight== mass*acceleration
+eq_COLM = FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left + FWeight== mass*acceleration;
 eq_COAM = cross(PDown, FDown) + ...
     cross(PUpperWing, FUpper) + cross(PUpperWing_Left, FUpper_Left) + ...
     cross(PBottomRearWing, FBottomRear) + cross(PBottomRearWing_Left, FBottomRear_Left) + ...
