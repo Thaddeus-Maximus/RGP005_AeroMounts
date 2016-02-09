@@ -1,5 +1,5 @@
 clear
-
+fprintf('...working...\n');
 PipeYieldStress = 63100; %Yield stress of 4130 Steel in PSI
 PipeModulus = 29700e+3;  %Pipe Modulus of Elasticity in PSI
 
@@ -20,44 +20,27 @@ PipeArea = pi/4*(PipeOD^2-(PipeOD-WallThickness*2)^2);
 PUpperWing = [-57.80, 39.24, 5.98];
 PUpperWing_Left = [PUpperWing(1),PUpperWing(2),-PUpperWing(3)];
 
-PUpperChassis = [-45.36, 39.47, 5.98];
-PUpperChassis_Left = [PUpperChassis(1),PUpperChassis(2),-PUpperChassis(3)];
 
+PBottomWing = [-65.80,27.24,18.33];
+PBottomWing_Left = [PBottomWing(1),PBottomWing(2),-PBottomWing(3)];
 
-PBottomRearWing = [-65.80,27.24,18.33];
-PBottomRearWing_Left = [PBottomRearWing(1),PBottomRearWing(2),-PBottomRearWing(3)];
-
-PBottomRearChassis = [-61.31,14.22,10.86];
-PBottomRearChassis_Left = [PBottomRearChassis(1),PBottomRearChassis(2),-PBottomRearChassis(3)];
-
-
-PBottomFrontWing = [-55.80,27.24,18.33];
-PBottomFrontWing_Left = [PBottomFrontWing(1),PBottomFrontWing(2),-PBottomFrontWing(3)];
-
-PBottomFrontChassis = [-60.79,12.71,9.99];
-PBottomFrontChassis_Left = [PBottomFrontChassis(1),PBottomFrontChassis(2),-PBottomFrontChassis(3)];
+PBottomChassis = [-61.31,14.22,10.86];
+PBottomChassis_Left = [PBottomChassis(1),PBottomChassis(2),-PBottomChassis(3)];
 
 % Tie rod line of actions
-LUpper = PUpperChassis - PUpperWing;
-LUpper_Left = PUpperChassis_Left - PUpperWing_Left;
+LBottom = PBottomChassis - PBottomWing;
+LBottom_Left = PBottomChassis_Left - PBottomWing_Left;
 
-LBottomRear = PBottomRearChassis - PBottomRearWing;
-LBottomRear_Left = PBottomRearChassis_Left - PBottomRearWing_Left;
 
-LBottomFront = PBottomFrontChassis - PBottomFrontWing;
-LBottomFront_Left = PBottomFrontChassis_Left - PBottomFrontWing_Left;
+% Mount forces
+syms TBottom
+syms FUpperx FUppery Fupperz
 
-% Tie rod forces
-syms TUpper TBottomRear TBottomFront
+FUpper = [FUpperx, FUppery, Fupperz];
+FUpper_Left = [FUpperx, FUppery, Fupperz];
 
-FUpper=LUpper/norm(LUpper) *TUpper;
-FUpper_Left=LUpper_Left/norm(LUpper_Left) *TUpper;
-
-FBottomRear=LBottomRear/norm(LBottomRear) *TBottomRear;
-FBottomRear_Left=LBottomRear_Left/norm(LBottomRear_Left) *TBottomRear;
-
-FBottomFront=LBottomFront/norm(LBottomFront) *TBottomFront;
-FBottomFront_Left=LBottomFront_Left/norm(LBottomFront_Left) *TBottomFront;
+FBottom=LBottom/norm(LBottom) *TBottom;
+FBottom_Left=LBottom_Left/norm(LBottom_Left) *TBottom;
 
 % Extra Forces in lbf.
 %TODO: NEED ESTIMATES
@@ -69,30 +52,23 @@ PDrag = [-60, 35, 0];
 
 FWeight = [0,-mass*32.2,0]; % Weight of wing
 
-eq_COLM = FDown + FUpper+FUpper_Left + FBottomRear+FBottomRear_Left + FBottomFront+FBottomFront_Left + FWeight== mass*acceleration;
+eq_COLM = FDown + FUpper+FUpper_Left + FBottom+FBottom_Left + FWeight== mass*acceleration;
 eq_COAM = cross(PDown, FDown) + ...
     cross(PUpperWing, FUpper) + cross(PUpperWing_Left, FUpper_Left) + ...
-    cross(PBottomRearWing, FBottomRear) + cross(PBottomRearWing_Left, FBottomRear_Left) + ...
-    cross(PBottomFrontWing, FBottomFront) + cross(PBottomFrontWing_Left, FBottomFront_Left) + cross(PCOM,FWeight)== mass*cross(PCOM, acceleration);
+    cross(PBottomWing, FBottom) + cross(PBottomWing_Left, FBottom_Left) + ...
+    cross(PCOM,FWeight)== mass*cross(PCOM, acceleration);
 
-[TBottomRear, TBottomFront, TUpper] = solve([eq_COLM, eq_COAM]);
+[FUpperx, FUppery, FUpperz, TBottom] = solve([eq_COLM, eq_COAM]);
+FUpper = [FUpperx, FUppery, FUpperz];
 
-
-UpperWallThickness_Yield = (solve(PipeYieldStress == abs(TUpper)*FOS/PipeArea));
-BottomRearWallThickness_Yield = (solve(PipeYieldStress == abs(TBottomRear)*FOS/PipeArea));
-BottomFrontWallThickness_Yield = (solve(PipeYieldStress == abs(TBottomFront)*FOS/PipeArea));
-FrontWallThickness = 0.028;
+PipeWallThickness = 0.028;
 %PipeArea = pi/4*(PipeOD^2-(PipeOD-FrontWallThickness_Yield(FrontWallThickness<0.1)*2)^2);
 %Deformation_Tierod = TFront*norm(LBottomFront)/PipeModulus/PipeArea;
 
-FBottomRear=LBottomRear/norm(LBottomRear) *TBottomRear;
+FBottom=LBottom/norm(LBottom) *TBottom;
 
-disp(double(FBottomRear/2))
-
-fprintf('Tension in Upper Rods: %.2f lbs\n', double(TUpper) )
-fprintf('Tension in Bottom Rear Rods: %.2f lbs\n', double(TBottomRear) )
-fprintf('Tension in Bottom Front Rods: %.2f lbs\n', double(TBottomFront) )
-fprintf('Required Upper Tie Rod Wall Thickness (Yield, w. FOS): %.4f in\n', double(max(UpperWallThickness_Yield(UpperWallThickness_Yield<0.1))) )
-fprintf('Required Bottom Rear Tie Rod Wall Thickness (Yield, w. FOS): %.4f in\n', double(max(BottomRearWallThickness_Yield(BottomRearWallThickness_Yield<0.1))) )
-fprintf('Required Bottom Front Tie Rod Wall Thickness (Yield, w. FOS): %.4f in\n', double(max(BottomFrontWallThickness_Yield(BottomFrontWallThickness_Yield<0.1))) )
-%fprintf('Deformation at Loading (Realistic, no FOS): %f0.2 in\n\n',  double(Deformation_Tierod) ) 
+fprintf('\n');
+fprintf('Cartesian force Applied By Each Upper Mount:\n    [%.2f, %.2f, %.2f] lbs\n', double(FUpper) )
+fprintf('\n');
+fprintf('Tension in Bottom Rear Rods:\n    %.2f lbs\n', double(TBottom) )
+fprintf('Cartesian force seen by a tab for Bottom Rear Rods:\n    [%.2f, %.2f, %.2f] lbs\n', double(-FBottom/2) )
