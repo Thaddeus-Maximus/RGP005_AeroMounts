@@ -1,0 +1,599 @@
+
+ ANSYS Academic Research                           
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *            ANSYS Release 16.1     LEGAL NOTICES             *
+ ***************************************************************
+ *                                                             *
+ * Copyright 2015 SAS IP, Inc.  All rights reserved.           *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of ANSYS, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the ANSYS, Inc. online documentation or the ANSYS, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * ANSYS, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * ANSYS, Inc. is a UL registered                              *
+ * ISO 9001:2008 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the ANSYS, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the ANSYS, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ Release 16.1
+     
+ Point Releases and Patches installed:   
+     
+ ANSYS, Inc. Products Release 16.1   
+ ANSYS Mechanical Products Release 16.1  
+ ANSYS Customization Files for User Programmable Features Release 16.1   
+ ANSYS Autodyn Release 16.1  
+ ANSYS CFX (includes ANSYS CFD-Post) Release 16.1
+ ANSYS Fluent (includes ANSYS CFD-Post) Release 16.1 
+ ANSYS TurboGrid Release 16.1
+ ANSYS Polyflow (includes ANSYS CFD-Post) Release 16.1   
+ ANSYS CFD-Post only Release 16.1
+ ANSYS ICEM CFD Release 16.1 
+ ANSYS Composite PrepPost Release 16.1   
+ ANSYS Icepak (includes ANSYS CFD-Post) Release 16.1 
+ ANSYS, Inc. License Manager Release 16.1
+
+
+          *****  ANSYS COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH   2 THREADS REQUESTED
+    TOTAL OF     2 CORES REQUESTED
+  DESIGNXPLORER REQUESTED
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+
+ RELEASE= Release 16.1         BUILD= 16.1      UP20150325   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=file  14:20:54  FEB 13, 2016 CP=      1.014
+
+
+ PARAMETER _DS_PROGRESS =     999.0000000    
+
+ /INPUT FILE= ds.dat  LINE=       0
+
+
+
+ DO NOT WRITE ELEMENT RESULTS INTO DATABASE
+
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  14.3483333    
+
+ TITLE= 
+ UpperTrussAnsys--Static Structural (B5)                                       
+
+
+ SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = C:\Users\hughest1\EngineeringWorkspace\RGP005_AeroMounts\_ProjectScratch\ScrAB5C\
+
+ SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_SOLVERFILES_DIR(1) = C:\Users\hughest1\EngineeringWorkspace\RGP005_AeroMounts\UpperTrussAnsys_files\dp0\SYS\MECH\
+
+ SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_USERFILES_DIR(1) = C:\Users\hughest1\EngineeringWorkspace\RGP005_AeroMounts\UpperTrussAnsys_files\user_files\
+ --- Data in consistent BIN units. See Solving Units in the help system for more
+
+ U.S. CUSTOMARY INCH UNITS SPECIFIED FOR INTERNAL    
+  LENGTH      = INCHES (IN)
+  MASS        = LBF-S**2/IN 
+  TIME        = SECONDS (SEC)  
+  TEMPERATURE = FAHRENHEIT
+  TOFFSET     = 460.0
+  FORCE       = LBF
+  HEAT        = IN-LBF
+  PRESSURE    = PSI (LBF/IN**2)
+  ENERGY      = IN-LBF
+  POWER       = IN-LBF/SEC
+
+ INPUT  UNITS ARE ALSO SET TO BIN 
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 16.1     16.1     ***
+ ANSYS Academic Research                           
+ 00202440  VERSION=WINDOWS x64   14:20:54  FEB 13, 2016 CP=      1.061
+
+ UpperTrussAnsys--Static Structural (B5)                                       
+
+
+
+          ***** ANSYS ANALYSIS DEFINITION (PREP7) *****
+ *********** Nodes for the whole assembly ***********
+ *********** Elements for Body 1 "Upper Mount Truss" ***********
+ *********** Send User Defined Coordinate System(s) ***********
+ *********** Set Reference Temperature ***********
+ *********** Send Materials ***********
+ *********** Fixed Supports ***********
+ *********** Create Bearing Load ***********
+
+
+ ***** ROUTINE COMPLETED *****  CP =         2.371
+
+
+ --- Number of total nodes = 171932
+ --- Number of contact elements = 720
+ --- Number of spring elements = 0
+ --- Number of bearing elements = 0
+ --- Number of solid elements = 111529
+ --- Number of total elements = 112249
+
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  14.3486111    
+ ****************************************************************************
+ *************************    SOLUTION       ********************************
+ ****************************************************************************
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ USE PRECONDITIONED CONJUGATE GRADIENT SOLVER
+  CONVERGENCE TOLERANCE = 1.00000E-08
+  MAXIMUM ITERATION     = NumNode*DofPerNode*  1.0000    
+
+ CONTACT INFORMATION PRINTOUT LEVEL       1
+
+ NLDIAG: Nonlinear diagnostics CONT option is set to ON. 
+         Writing frequency : each ITERATION.
+
+ DO NOT SAVE ANY RESTART FILES AT ALL
+ ****************************************************
+ ******************* SOLVE FOR LS 1 ****************
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE         2 TO          2 STEP          1
+
+        720  ELEMENTS (OF     112249  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  5   KVAL = 1
+     VALUES =     0.0000         1.0000         0.0000         0.0000    
+
+ COORDINATE SYSTEM     11 DEFINITION.  TYPE= 0  (CARTESIAN)  
+   XC,YC,ZC=  0.0000      0.0000      0.0000    
+   ANGLES=  -91.74    0.00    0.00   PARAMETERS=   1.000   1.000
+   ORIENTATION= -0.03 -1.00  0.00   1.00 -0.03  0.00   0.00  0.00  1.00
+
+ ACTIVE COORDINATE SYSTEM SET TO     11  (CARTESIAN)  
+
+ ACTIVE COORDINATE SYSTEM SET TO      0  (CARTESIAN)  
+
+ PARAMETER _V1 =   -0.3037307992E-01
+
+ PARAMETER _V2 =   -0.9995386316    
+
+ PARAMETER _V3 =     0.000000000    
+
+ *GET  _NECURR   FROM  ELEM  ITEM=COUN           VALUE=  720.000000    
+
+ PARAMETER _ECURR =     0.000000000    
+
+ PARAMETER _TOTAL =     0.000000000    
+
+ *DO LOOP ON PARAMETER= _I FROM  1.0000     TO  720.00     BY  1.0000    
+
+ PARAMETER _ECURR =     111530.0000    
+
+ PARAMETER _NORMX =   -0.7927635559    
+
+ PARAMETER _NORMY =    0.6089760615    
+
+ PARAMETER _NORMZ =    0.2596345665E-01
+
+ PARAMETER _NORMMAG =     1.000000000    
+
+ PARAMETER _NORMX =   -0.7927635559    
+
+ PARAMETER _NORMY =    0.6089760615    
+
+ PARAMETER _NORMZ =    0.2596345665E-01
+
+ PARAMETER _DOT =   -0.5846164283    
+
+ *IF  _dot                              ( = -0.584616     )  GT  
+      -.00001                           ( = -0.100000E-04 )  THEN    
+
+ *ELSE
+
+ ACTIVE COORDINATE SYSTEM SET TO     11  (CARTESIAN)  
+
+ *GET  _INDD     FROM  ELEM  111530  ITEM=APRO X         VALUE= 0.183643102E-03
+
+ ACTIVE COORDINATE SYSTEM SET TO      0  (CARTESIAN)  
+
+ PARAMETER _TOTAL =    0.1836431018E-03
+
+ *ENDIF
+
+ *ENDDO  INDEX= _I                              
+
+ *GET  _NECURR   FROM  ELEM  ITEM=COUN           VALUE=  360.000000    
+
+ *IF  _necurr                           ( =   360.000     )  EQ  
+      0                                 ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ PARAMETER _MAG =     230.7964770    
+
+ PARAMETER _MAG =     3760.164289    
+
+ SPECIFIED SURFACE LOAD PRES FOR ALL SELECTED ELEMENTS  LKEY =  5   KVAL = 1
+     VALUES =     3760.2        -7.0100        -230.69         0.0000    
+
+ ALL SELECT   FOR ITEM=NODE COMPONENT=    
+  IN RANGE         1 TO     171932 STEP          1
+
+     171932  NODES (OF     171932  DEFINED) SELECTED BY NSEL  COMMAND.
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE         1 TO     112249 STEP          1
+
+     112249  ELEMENTS (OF     112249  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ PRINTOUT RESUMED BY /GOP
+
+ USE       1 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE      1 SUBSTEPS AS A MAXIMUM
+   USE      1 SUBSTEPS AS A MINIMUM
+
+ TIME=  1.0000    
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ NONLINEAR STABILIZATION CONTROL:
+ KEY=OFF 
+
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_                         ( =   0.00000     )  NE  
+      0                                 ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *****  ANSYS SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =       2.590   TIME= 14:20:55
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** NOTE ***                            CP =       3.713   TIME= 14:20:56
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ C:\Users\hughest1\EngineeringWorkspace\RGP005_AeroMounts\_ProjectScratc 
+ ch\ScrAB5C\file.err ) for these warning messages.                       
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+      --- GIVE SUGGESTIONS AND RESET THE KEY OPTIONS ---
+
+ ELEMENT TYPE    1 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 16.1     16.1     ***
+ ANSYS Academic Research                           
+ 00202440  VERSION=WINDOWS x64   14:20:56  FEB 13, 2016 CP=      3.744
+
+ UpperTrussAnsys--Static Structural (B5)                                       
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  459.67    
+   EQUATION SOLVER OPTION. . . . . . . . . . . . .PCG                
+      TOLERANCE. . . . . . . . . . . . . . . . . . 1.00000E-08
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** WARNING ***                         CP =       3.994   TIME= 14:20:56
+ Material number 2 (used by element 111530 ) should normally have at     
+ least one MP or one TB type command associated with it.  Output of      
+ energy by material may not be available.                                
+
+ *** NOTE ***                            CP =       4.150   TIME= 14:20:56
+ The step data was checked and warning messages were found.              
+  Please review output or errors file (                                  
+ C:\Users\hughest1\EngineeringWorkspace\RGP005_AeroMounts\_ProjectScratc 
+ ch\ScrAB5C\file.err ) for these warning messages.                       
+
+ *** NOTE ***                            CP =       4.150   TIME= 14:20:56
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      STRS        ALL               
+      EPEL        ALL               
+      EPPL        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
+
+
+ *** NOTE ***                            CP =       6.349   TIME= 14:20:57
+ The PCG solver has automatically set the level of difficulty for this   
+ model to 1.                                                             
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.11057E-02    0.0000        0.0000     |     0.0000       0.13821E-03   0.34689E-02
+         0.0000       0.11057E-02    0.0000     |   -0.13821E-03    0.0000       0.11406E-02
+         0.0000        0.0000       0.11057E-02 |   -0.34689E-02  -0.11406E-02    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.12997E-01  -0.33659E-03  -0.14258E-03
+                                                |   -0.33659E-03   0.25801E-01   0.43361E-03
+                                                |   -0.14258E-03   0.43361E-03   0.38752E-01
+
+   TOTAL MASS = 0.11057E-02
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=    1.0316       -3.1374       0.12500    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.20964E-02  -0.39152E-02   0.85540E-10
+       -0.39152E-02   0.24607E-01   0.12015E-10
+        0.85540E-10   0.12015E-10   0.26692E-01
+
+   PRINCIPAL INERTIAS =   0.14348E-02   0.25268E-01   0.26692E-01
+   ORIENTATION VECTORS OF THE INERTIA PRINCIPAL AXES IN GLOBAL CARTESIAN
+     ( 0.986, 0.167,-0.000) (-0.167, 0.986, 0.000) ( 0.000,-0.000, 1.000) 
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.110565E-02
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 4699846.73 at element 64574.                                  
+ Minimum = 86099.9745 at element 8597.                                   
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1    111529  SOLID187     13.915   0.000125
+     2       720  SURF154       0.062   0.000087
+ Time at end of element matrix formulation CP = 13.6188869.              
+ curEqn=  17244  totEqn=  17244 Job CP sec=      9.272
+      Factor Done= 100% Factor Wall sec=      0.000 rate=       0.0 Mflops
+ Iteration=    10 Ratio=  9.518360E-02 Limit=  1.000000E-08 Wall=     0.5
+ Iteration=    40 Ratio=  6.331909E-04 Limit=  1.000000E-08 Wall=     2.1
+ Iteration=    90 Ratio=  2.297904E-06 Limit=  1.000000E-08 Wall=     4.8
+
+ PRECONDITIONED SOLVER CP TIME      =     8.477
+ PRECONDITIONED SOLVER ELAPSED TIME =     8.477
+
+   *** ELEMENT RESULT CALCULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1    111529  SOLID187      9.734   0.000087
+     2       720  SURF154       0.031   0.000043
+
+   *** NODAL LOAD CALCULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1    111529  SOLID187      0.437   0.000004
+     2       720  SURF154       0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+       90.688 MB WRITTEN ON RESULTS FILE: file.rst
+ *************** Write FE CONNECTORS *********
+
+ WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 1 *************
+
+ PARAMETER _DS_PROGRESS  DELETED.
+
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  14.3536111    
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _PCGITER  FROM  ACTI  ITEM=SOLU CGIT  VALUE=  131.000000    
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        36.036
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 16.1     16.1     ***
+ ANSYS Academic Research                           
+ 00202440  VERSION=WINDOWS x64   14:21:13  FEB 13, 2016 CP=     36.036
+
+ UpperTrussAnsys--Static Structural (B5)                                       
+
+
+
+          ***** ANSYS RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            CP =      36.036   TIME= 14:21:13
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml                                                                                                                                                                                                                                                            
+
+ EXIT THE ANSYS POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =        36.036
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  14.3536111    
+
+ PARAMETER _PREPTIME =     1.000000000    
+
+ PARAMETER _SOLVTIME =     18.00000000    
+
+ PARAMETER _POSTTIME =     0.000000000    
+
+ PARAMETER _TOTALTIM =     19.00000000    
+
+ EXIT ANSYS WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          2
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- A N S Y S   S T A T I S T I C S ------------------------+
+
+Release: Release 16.1       Build: 16.1       Update: UP20150325   Platform: WINDOWS x64 
+Date Run: 02/13/2016   Time: 14:21
+Windows Process ID:        18848
+
+Processor Model: Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz
+
+Compiler: Intel(R) FORTRAN Compiler Version 14.0.0  (Build: 20140422)
+          Intel(R) C/C++ Compiler Version 14.0.0  (Build: 20140422)
+          Intel(R) Math Kernel Library Version 11.1.3 Product Build 20140917
+
+Total number of cores available         :    8
+Number of physical cores available      :    4
+Number of processes requested           :    1
+Number of threads per process requested :    2
+Total number of cores requested         :    2 (Shared Memory Parallel)                    
+
+GPU Acceleration: Not Requested
+
+Job Name: file
+Working Directory: C:\Users\hughest1\EngineeringWorkspace\RGP005_AeroMounts\_ProjectScratch\ScrAB5C
+
+Total CPU time for main thread                    :       19.4 seconds
+Total CPU time summed for all threads             :       36.0 seconds
+
+Elapsed time spent pre-processing model (/PREP7)  :        0.8 seconds
+Elapsed time spent solution - preprocessing       :        1.9 seconds
+Elapsed time spent computing solution             :       15.7 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+
+Equation solver computational rate                :     5999.2 Mflops
+
+Maximum total memory used                         :      604.0 MB
+Maximum total memory allocated                    :     2112.0 MB
+Maximum total memory available                    :          8 GB
+
++------------------ E N D   A N S Y S   S T A T I S T I C S -------------------+
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                            ANSYS RUN COMPLETED                            |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Ansys Release 16.1          Build 16.1         UP20150325     WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)  1024 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used     126 MB    Maximum Scratch Memory Used    478 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =         36.036       Time  =  14:21:14        |
+ |        Elapsed Time (sec) =         22.000       Date  =  02/13/2016      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*

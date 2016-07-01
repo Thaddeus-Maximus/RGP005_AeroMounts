@@ -1,0 +1,36 @@
+﻿# encoding: utf-8
+# Release 16.1
+SetScriptVersion(Version="16.1.91")
+SetUnitsDisplaySettings(DisplaySettings="DisplayValuesInProjectUnits")
+SetUnitsDisplaySettings()
+system1 = GetSystem(Name="SYS")
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="6061 Aluminum")
+material1.Delete()
+material2 = engineeringData1.GetMaterial(Name="Aluminum Alloy")
+matl1 = material2.Duplicate(TargetContainer=engineeringData1)
+matl1.DisplayName = "6061 Aluminum"
+matlProp1 = matl1.GetProperty(Name="Elasticity")
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["68900000000 [Pa]"]])
+matlProp2 = matl1.GetProperty(Name="Tensile Yield Strength")
+matlProp2.SetData(
+    Variables=["Tensile Yield Strength"],
+    Values=[["276000000 [Pa]"]])
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Update(AllDependencies=True)
+modelComponent1.UpdateUpstreamComponents()
+modelComponent1.Refresh()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+Refresh()
+Update()
+Update()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Exit()
+model1.Edit()
+Save(Overwrite=True)
+Reset()

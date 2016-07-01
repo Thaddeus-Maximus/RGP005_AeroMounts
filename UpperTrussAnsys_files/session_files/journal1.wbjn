@@ -1,0 +1,66 @@
+﻿# encoding: utf-8
+# Release 16.1
+SetScriptVersion(Version="16.1.91")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+ImportFile(FilePath="//rose-hulman.edu/dfs/Groups/RoseGPE/RGP-005/SolidWorks/Aerodynamics/Rear Wing/Upper Mount Truss.sldprt")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = GetSystem(Name="Geometry")
+geometryComponent2 = system2.GetComponent(Name="Geometry")
+geometryComponent1.ReplaceWithShare(
+    TargetSystem=system1,
+    ComponentToShare=geometryComponent2,
+    SourceSystem=system2)
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+Update()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+model1.Exit()
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Update(AllDependencies=True)
+setup1.Edit()
+Save(Overwrite=True)
+modelComponent1.Update(AllDependencies=True)
+setupComponent1.Update(AllDependencies=True)
+solution1 = system1.GetContainer(ComponentName="Solution")
+solution1.Edit()
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="6061 Aluminum")
+matl1.SetAsDefaultSolidForModel()
+favorites1 = EngData.LoadFavoriteItems()
+library1 = EngData.OpenLibrary(
+    Name="General Materials",
+    Source="General_Materials.xml")
+matl2 = engineeringData1.ImportMaterial(
+    Name="Aluminum Alloy",
+    Source="General_Materials.xml")
+library2 = EngData.OpenLibrary(
+    Name="General_Materials",
+    Source=ANSYS::Disk::General_Materials.xml)
+library3 = EngData.OpenLibrary(
+    Name="Explicit Materials",
+    Source="Explicit_Materials.xml")
+engineeringDataComponent1 = system1.GetComponent(Name="Engineering Data")
+engineeringDataComponent1.Update(AllDependencies=True)
+library4 = EngData.OpenLibrary(
+    Name="Magnetic B-H Curves",
+    Source="Magnetic_B-H_curves_Soft_Materials.xml")
+library5 = EngData.OpenLibrary(
+    Name="Fluid Materials",
+    Source="Fluid_Materials.xml")
+library6 = EngData.OpenLibrary(
+    Name="Thermal Materials",
+    Source="Thermal_Materials.xml")
+library7 = EngData.OpenLibrary(
+    Name="Composite Materials",
+    Source="Composite_Materials.xml")
+EngData.EnableFilter(Enable=False)
+EngData.EnableFilter()
+Save(Overwrite=True)

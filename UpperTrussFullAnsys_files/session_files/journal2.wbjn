@@ -1,0 +1,67 @@
+﻿# encoding: utf-8
+# Release 16.1
+SetScriptVersion(Version="16.1.91")
+system1 = GetSystem(Name="Geometry")
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit()
+geometry1.Exit()
+system2 = GetSystem(Name="SYS")
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+engineeringData1 = system2.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="Carbon Fiber")
+favorites1 = EngData.LoadFavoriteItems()
+library1 = EngData.OpenLibrary(
+    Name="General Materials",
+    Source="General_Materials.xml")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic")
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["15 [Pa]"]])
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["15000 [Pa]"]])
+matlProp1.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="psi")
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["2.1755652118420366 [psi]"]])
+matlProp1.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["15000000 [psi]"]])
+matlProp1.SetQualifier(
+    Qualifier="Derive from",
+    Value="Shear Modulus and Young's Modulus")
+matlProp1.SetVariableProperty(
+    VariableName="Shear Modulus",
+    Property="Unit",
+    Value="psi")
+matlProp1.SetData(
+    Variables=["Shear Modulus"],
+    Values=[["7500000 [psi]"]])
+matlProp1.SetData(
+    Variables=["Shear Modulus"],
+    Values=[["600000 [psi]"]])
+Update()
+matlProp2 = matl1.CreateProperty(Name="Density")
+matlProp2.SetVariableProperty(
+    VariableName="Density",
+    Property="Unit",
+    Value="g cm^-3")
+matlProp2.SetData(
+    Index=-1,
+    Variables=["Density"],
+    Values=[["1.55 [g cm^-3]"]])
+matlProp1.Delete(Behavior="Isotropic")
+matlProp3 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Anisotropic")
+model1.Exit()
+Save(Overwrite=True)

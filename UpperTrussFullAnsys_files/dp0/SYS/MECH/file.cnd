@@ -1,0 +1,45 @@
+<SOLUTION>
+<HEADER FRQ="ITERATION">
+ <COLUMN ID="    1">Contact Pair ID</COLUMN>
+ <COLUMN ID="    2">Number of Contact Elements in Contact</COLUMN>
+ <COLUMN ID="    3">Number of Contact Elements in Contact (Sticking)</COLUMN>
+ <COLUMN ID="    4">Max. Chattering Level</COLUMN>
+ <COLUMN ID="    5">Max. Penetration/Min. Gap</COLUMN>
+ <COLUMN ID="    6">Max. Closed Gap</COLUMN>
+ <COLUMN ID="    7">Max. Normal Stiffness</COLUMN>
+ <COLUMN ID="    8">Min. Normal Stiffness</COLUMN>
+ <COLUMN ID="    9">Max. Resulting Pinball</COLUMN>
+ <COLUMN ID="   10">Max. Elastic Slip Distance</COLUMN>
+ <COLUMN ID="   11">Max. Tangential Stiffness</COLUMN>
+ <COLUMN ID="   12">Min. Tangential Stiffness</COLUMN>
+ <COLUMN ID="   13">Max. Sliding Distance</COLUMN>
+ <COLUMN ID="   14">Max. Contact Pressure</COLUMN>
+ <COLUMN ID="   15">Max. Friction Stress</COLUMN>
+ <COLUMN ID="   16">Average Contact Depth</COLUMN>
+ <COLUMN ID="   17">Max. Closed Penetration</COLUMN>
+ <COLUMN ID="   18">Number of Contact Points Have Too Much Penetration</COLUMN>
+ <COLUMN ID="   19">Contacting Area</COLUMN>
+ <COLUMN ID="   20">Max. Contact Damping Pressure</COLUMN>
+ <COLUMN ID="   21">Max. Contact Damping Tangential stress</COLUMN>
+ <COLUMN ID="   22">Max. Sliding Distance including near field</COLUMN>
+ <COLUMN ID="   23">Min. Sliding Distance including near field</COLUMN>
+ <COLUMN ID="   24">Max. fluid penetration pressure on contact surface</COLUMN>
+ <COLUMN ID="   25">Max. fluid penetration pressure on target surface</COLUMN>
+ <COLUMN ID="   26">Total volume loss due to wear on contact surface</COLUMN>
+ <COLUMN ID="   27">Total strain energy due to contact</COLUMN>
+ <COLUMN ID="   28">Frictional dissipation energy</COLUMN>
+ <COLUMN ID="   29">Contact damping dissipation energy</COLUMN>
+ <COLUMN ID="   30">WB contact pair ID</COLUMN>
+ <UNITS>BIN</UNITS>
+</HEADER>
+<COLDATA LOAD_STEP="        1" SUBSTEP="        1" ITERATION="        0" TIME="    0.000000    ">
+        4       270       270         0    0.2131638E-13   -0.9108062E-08    0.2045905E+11    0.2045905E+11    0.2516656E-01     0.000000        0.1617795E+11    0.1617795E+11     0.000000        0.4361129E-03     0.000000        0.1006662       -0.1088370E-07         0     2.219542         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.1282323E-18     0.000000         0.000000           368
+        5        -2         0         0    -16266.00         0.000000         0.000000         0.000000         16266.00         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.3203345E-01     0.000000             0     0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000           368
+        6        -2         0         0    -24119.00         0.000000         0.000000         0.000000         24119.00         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.3203345E-01     0.000000             0     0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000           371
+        7       270       270         0    0.1421092E-13   -0.7824937E-08    0.2045905E+11    0.2045905E+11    0.2516656E-01     0.000000        0.1617795E+11    0.1617795E+11     0.000000        0.2907420E-03     0.000000        0.1006662       -0.8683383E-08         0     2.219542         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.1090201E-18     0.000000         0.000000           371
+        8        -2         0         0    -27016.00         0.000000         0.000000         0.000000         27016.00         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.9992068E-01     0.000000             0     0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000           379
+        9       275       275         0    0.1421092E-13   -0.8264097E-08    0.2061171E+11    0.2061171E+11    0.8006694E-02     0.000000        0.5205115E+10    0.5205115E+10     0.000000        0.2929113E-03     0.000000        0.3202678E-01   -0.8823119E-08         0     2.148123         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.1316221E-18     0.000000         0.000000           379
+       10        -2         0         0    -28419.00         0.000000         0.000000         0.000000         28419.00         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.9992068E-01     0.000000             0     0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000           382
+       11       274       274         0    0.2131638E-13   -0.9134935E-08    0.2061171E+11    0.2061171E+11    0.8005324E-02     0.000000        0.5189265E+10    0.5189265E+10     0.000000        0.4393670E-03     0.000000        0.3202130E-01   -0.1162540E-07         0     2.156252         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000         0.000000        0.1677758E-18     0.000000         0.000000           382
+</COLDATA>
+</SOLUTION>
